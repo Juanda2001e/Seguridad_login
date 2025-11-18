@@ -82,10 +82,10 @@ if (isset($_POST['login'])) {
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-
-<h2>Login</h2>
-
-<?php
+<img src="back.jpeg" alt="Sakuratruck">
+<div class="container">
+    <h2>Sakura Express </h2>
+    <?php
 if ($error != "") {
     echo "<p style='color:red;'>$error</p>";
 }
@@ -95,35 +95,37 @@ if ($mensaje != "") {
 ?>
 
 <?php if (!empty($_SESSION['login'])): ?>
-
-<p>Has iniciado sesión como <b><?php echo htmlspecialchars($_SESSION['nombre']); ?></b></p>
-<p><a href="?logout=1">Cerrar sesión</a></p>
-
-<?php else: ?>
-
-<form method="post">
-    <div class="usuario">
-        <label>Usuario (o correo):</label>
-        <input type="text" name="usuario" required><br><br>
-    </div>
-    <div class="password">
-        <label>Contraseña:</label>
-        <input type="password" name="clave" required>
-    </div>
     
-    <div class="g-recaptcha" data-sitekey="6LfOUOMrAAAAACM9fl9h61FwQKU7Hwxwx6D4bU5A"></div>
-    <button type="submit" name="login">Iniciar sesión</button>
-</form>
+        
+        <p>Has iniciado sesión como <b><?php echo htmlspecialchars($_SESSION['nombre']); ?></b></p>
+        <p><a href="?logout=1">Cerrar sesión</a></p>
 
-<p>Usuarios disponibles para probar:</p>
+        <?php else: ?>
+
+        <form method="post">
+            <div class="usuario">
+                <input type="text" name="usuario" required placeholder=" Usuario o Correo"><br><br>
+            </div>
+            <div class="password">
+                <input type="password" name="clave" required placeholder="Contraseña">
+            </div>
+            
+            <div class="g-recaptcha" data-sitekey="6LfOUOMrAAAAACM9fl9h61FwQKU7Hwxwx6D4bU5A"></div>
+            <button type="submit" name="login">Iniciar sesión</button>
+        </form>
+<div class="ejemplos"><p>Usuarios disponibles para probar:</p>
 <ul>
     <li>juan / Clave123</li>
     <li>maria / Pass2024</li>
     <li>admin / Admin123</li>
-</ul>
+</ul>   </div>
+
 
 <?php endif; ?>
 
+</div>
+
+        
 </body>
 </html>
 
